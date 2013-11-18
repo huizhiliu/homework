@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <style>
+  #placeholder{ height:400px;}
+  ul{list-style: none;
+    padding:0;
+  }
+  li{float: left;
+    margin-left: 50px;
+  }
+  #click{position: absolute;
+        top:540px;
+        right:310px;
+  } 
+  a{
+    text-decoration:none;
+    background-color: transparent;
+    font-weight: bold;
+  }
+  #description{
+    position: absolute;
+    left:500px;
+    clear:both;
+  }
+  img{
+    display: block;
+    clear: both;
+    position: absolute;
+    top:120px;
+    left:25%;
+  }
+  p{
+    position: absolute;
+    top:535px;
+    left:350px;
+    background-color: transparent;
+    font-weight: bold;
+  }
+  </style>
+</head>
+<body>
+
+  <div>
+  <h1>Snapshots</h1>
+    <ul id="all">
+    <li class="kinds">
+      <a href="../img/zhiyu.jpg" onmouseover="showPic(this);return false;" title="A snower and a girl display" >snow</a>
+    </li>
+    <li class="kinds">
+      <a href="../img/dongman.jpg" onmouseover="showPic(this);return false;" title="A girl display" >girl</a>
+    </li>
+    <li class="kinds">
+      <a href="../img/f.png" onmouseover="showPic(this);return false;" title="A flower display" >flower</a>
+    </li>
+    <li class="kinds">
+    </li>
+    <li class="kinds">
+      <a href="../img/xiaoqingxing.jpg" onmouseover="showPic(this);return false;" title="gentle" >gentle</a>
+    </li>
+    <li class="kinds">
+      <a href="../img/cool kids.png" onmouseover="showPic(this);return false;" title="A cool kids">kids</a>
+    </li>
+    <li class="kinds">
+      <a href="../img/roses.png" onmouseover="showPic(this);return false;" title=" white roses">roses</a>
+    </li>
+    <li class="kinds">
+      <a href="../img/bb.png" onmouseover="showPic(this);return false;" title="deliclious food,your favorite">food</a>
+    </li>
+    <li class="kinds">
+      <a href="../img/keyboard.png" onmouseover="showPic(this);return false;" title="keyboard">keyboard</a>
+    </li>
+   </ul> 
+
+   <button id="click" onclick="asd(body,'kinds')">点击查看图片数量</button>
+
+   <img id="placeholder" src="../img/.png" alt="my image gallery"/>
+
+   <p id="description">Choose an image.</p>
+</div>
+   
+   <script type="text/javascript">
+
+   function showPic(whichpic)
+   {
+    var source=whichpic.getAttribute("href");
+    var placeholder=document.getElementById("placeholder");
+    placeholder.setAttribute("src",source);
+    var text=whichpic.getAttribute("title");
+    var description=document.getElementById("description");
+    description.firstChild.nodeValue=text;
+   }
+
+   function asd(body,kinds){
+   var results=new Array();
+   var elems=body.getElementsByTagName("*");
+   for (var i = 0; i < elems.length; i++) {
+     if(elems[i].className.indexOf(kinds)!=-1)
+      results[results.length]=elems[i];
+   };
+   alert(results.length);
+   return results;
+   }
+  
+</script>
+
+</body>
+
+</html>
+
